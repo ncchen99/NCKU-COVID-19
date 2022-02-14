@@ -234,7 +234,7 @@
       }
     </style>
   </head>
-  <body style="padding-right: 15px" class="modal-open">
+  <body style="padding-right: 15px; overflow: initial" class="modal-open">
     <header id="header">
       <div class="navbar navbar-inverse" role="navigation">
         <div class="container" style="padding-left: 0px; padding-right: 0px">
@@ -288,17 +288,6 @@
                       > </span></span
                   ></a>
                 </li>
-                <!--20210611目前先停用-->
-                <!-- <li class="dropdown visible-lg visible-md visible-sm" style="height:72px;margin-top:0px;">				
-								<a href="./index.php?c=plus" style="line-height: 10px;padding-top:2px;padding-bottom:2px;padding-left:0px;padding-right:0px;">
-									<span style="line-height: 14px;">檢疫後7天追蹤</span> <br><span style="font-size:8.5px;letter-spacing:-0.3px;">7-day Health<br>Tracking Down<br>After Quarantine<br>Ends<span>
-								</a>
-							</li>
-							<li class="dropdown visible-xs">				
-								<a href="./index.php?c=plus">
-									檢疫後7天追蹤 7-day Health Tracking Down After Quarantine Ends
-								</a>
-							</li> -->
                 <li
                   class="dropdown visible-lg visible-md visible-sm"
                   style="height: 72px; margin-top: 0px"
@@ -526,7 +515,7 @@
           <div class="grid_content">
             <div
               class="grid_data_div"
-              style="height: 100%; width: 85%; padding: 15px; margin: auto"
+              style="height: auto; width: 85%; padding: 15px; margin: auto"
             >
               <form>
                 <div class="form-group">
@@ -559,6 +548,22 @@
       </div>
     </div>
 
+    <!--footer-->
+    <footer id="footer">
+      <div class="container">
+        <div
+          class="copyright-text text-center"
+          style="margin-top: 0px !important"
+        >
+          版權所有 <i class="fa fa-copyright"></i> 2022
+          國立成功大學防疫小組監製<br />防疫諮詢電話: 06-2757575轉50430
+        </div>
+      </div>
+
+      <div id="gotop"><center>^</center></div>
+    </footer>
+
+    <!--/#footer-->
     <div
       class="ncov_style form modal fade in"
       id="show_light"
@@ -811,22 +816,6 @@
       </div>
     </div>
 
-    <!--footer-->
-    <footer id="footer">
-      <div class="container">
-        <div
-          class="copyright-text text-center"
-          style="margin-top: 0px !important"
-        >
-          版權所有 <i class="fa fa-copyright"></i> 2022
-          國立成功大學防疫小組監製<br />防疫諮詢電話: 06-2757575轉50430
-        </div>
-      </div>
-
-      <div id="gotop"><center>^</center></div>
-    </footer>
-
-    <!--/#footer-->
     <script
       src="https://code.jquery.com/jquery-3.6.0.min.js"
       integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
@@ -1100,8 +1089,12 @@
         set_and_show();
       }
       function show_greenlight() {
-        Cookies.set("name", $("#stu-name").val());
-        Cookies.set("id", $("#stu-id").val().toUpperCase());
+        Cookies.set("name", $("#stu-name").val(), {
+          expires: 365,
+        });
+        Cookies.set("id", $("#stu-id").val().toUpperCase(), {
+          expires: 365,
+        });
         console.log($("#stu-id").val());
         console.log(Cookies.get("name"));
         set_and_show();

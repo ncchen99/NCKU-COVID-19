@@ -1,0 +1,1111 @@
+<html lang="zh-Hang-TW" class=" ">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <link rel="shortcut icon" href="./images/favicon.ico?1644821050" />
+    <link rel="bookmark" href="./images/favicon.ico?1644821050" />
+    <title>
+      國立成功大學新型冠狀病毒（COVID-19）資訊平台專區 - 每日體溫及症狀紀錄
+    </title>
+
+    <link href="bootstrap/css/bootstrap_ncku.css" rel="stylesheet" />
+    <link href="bootstrap/css/bootstrap_ncku_1.css" rel="stylesheet" />
+    <link href="bootstrap/css/bootstrap_tep.css" rel="stylesheet" />
+    <link href="bootstrap/css/responsive.css" rel="stylesheet" />
+
+    <style type="text/css">
+      /*table css*/
+      .grid {
+        margin: 15px 0 15px 0;
+      }
+      .modal-backdrop {
+        display: none;
+      }
+      .modal {
+        background: rgba(0, 0, 0, 0.5);
+      }
+      #gotop {
+        display: none;
+        position: fixed;
+        right: 40px;
+        bottom: 40px;
+        padding: 10px 15px;
+        font-size: 20px;
+        background: #991f23;
+        color: white;
+        cursor: pointer;
+        border-radius: 50px;
+      }
+      .rwd_main {
+        background: #f0fcf0 none repeat scroll 0 0;
+        font-size: 20px;
+        vertical-align: center;
+        text-align: center;
+        font-weight: bold;
+        border: 1px solid #dcdcdc;
+        min-height: 40px;
+        padding: 5px;
+      }
+      .rwd_survey {
+        background: #c2c2c2 none repeat scroll 0 0;
+        font-size: 20px;
+        vertical-align: center;
+        text-align: center;
+        font-weight: bold;
+        border: 1px solid #dcdcdc;
+        min-height: 30px;
+        padding: 5px;
+      }
+      .rwd_th {
+        background: #efefef none repeat scroll 0 0;
+        font-size: 16px;
+        vertical-align: center;
+        font-weight: bold;
+      }
+      .rwd_td,
+      .rwd_th {
+        border: 1px solid #dcdcdc;
+        min-height: 50px;
+        padding: 5px;
+      }
+      .rwd_td {
+        font-size: 16px;
+        background: white;
+      }
+      .rwd_th2 {
+        background: #efefef none repeat scroll 0 0;
+        font-size: 16px;
+        vertical-align: center;
+        font-weight: bold;
+      }
+      .rwd_td2,
+      .rwd_th2 {
+        border: 1px solid #dcdcdc;
+        min-height: 50px;
+        padding: 5px;
+      }
+      .rwd_td2 {
+        font-size: 16px;
+        background: white;
+      }
+      .ui-widget {
+        font-family: 微軟正黑體, "Lato", sans-serif !important;
+      }
+      .error {
+        word-break: break-all;
+        word-wrap: break-word;
+      }
+      .navbar-nav {
+        margin-right: 0px;
+      }
+      @media (max-width: 767px) {
+        .navbar-nav {
+          margin-right: -15px;
+        }
+      }
+      @media (min-width: 768px) {
+        .navbar-header {
+          margin-left: 5px;
+        }
+      }
+      .reveal-modal {
+        position: relative;
+        margin: 0 auto;
+        top: 25%;
+      }
+      .ncov_style .bg {
+        background: #f6f9f8;
+        padding: 20px 10px;
+        border-radius: 5px;
+        margin: 10px;
+      }
+
+      .ncov_style .green-bg {
+        background: #338b5f;
+        padding: 5px 15px;
+        margin: 5px;
+        border-radius: 30px;
+        color: #ffe477;
+      }
+      .ncov_style .gray-bg {
+        background: #d0d0d0;
+        padding: 5px 15px;
+        margin: 5px;
+        border-radius: 30px;
+        color: #000000;
+      }
+
+      .ncov_style .PCR-bg {
+        background: #f5e8e7;
+        padding: 15px 10px;
+        margin: 20px 10px;
+        color: #000000;
+      }
+
+      .ncov_style .led_font3 {
+        font-size: medium;
+        margin-left: auto;
+        margin-right: auto;
+        line-height: 1.3em;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        width: 100%;
+      }
+
+      .ncov_style .led_font2 {
+        font-size: medium;
+        margin-left: auto;
+        margin-right: auto;
+        line-height: 1.3em;
+        margin-top: 20px;
+        margin-bottom: 20px;
+      }
+      .ncov_style .modal-header2 {
+        min-height: 16.42857143px;
+        padding: 15px;
+        background: #f6f9f8;
+        border-radius: 15px 15px 0 0;
+      }
+      .ncov_style .modal-content2 {
+        position: relative;
+        -webkit-background-clip: padding-box;
+        background: #fff;
+        box-shadow: 0 10px 35px rgb(0 0 0 / 10%);
+        border-radius: 15px;
+      }
+      .ncov_style .ncov_style td {
+        border-bottom: 1px solid #f6f9f8;
+      }
+      .ncov_style .title-font {
+        font-size: calc(24px + 8 * (100vw - 720px) / 780);
+        line-height: 1;
+        color: #424242;
+        padding-top: 10px;
+      }
+      .ncov_style .title-font2 {
+        text-align: center;
+        font-size: calc(13px + 5 * (100vw - 720px) / 780);
+      }
+      .ncov_style .modal-footer2 {
+        padding: 15px;
+        text-align: right;
+      }
+
+      .ncov_style .row2 {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .ncov_style .led_font {
+        font-size: medium;
+        margin-left: auto;
+        margin-right: auto;
+        line-height: 1.3em;
+      }
+      .ncov_style .led_width {
+        width: 50%;
+      }
+
+      @media (max-width: 500px) {
+        .ncov_style .row2 {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+        }
+      }
+
+      @media (max-width: 767px) {
+        .ncov_style .led_font {
+          font-size: smaller;
+          margin-left: auto;
+          margin-right: auto;
+          line-height: 1.1em;
+        }
+        .ncov_style .led_width {
+          width: 40%;
+        }
+        .ncov_style .led_span_en {
+          letter-spacing: -0.5px;
+        }
+      }
+    </style>
+  </head>
+  <body style="padding-right: 15px" class="modal-open">
+    <header id="header">
+      <div class="navbar navbar-inverse" role="navigation">
+        <div class="container" style="padding-left: 0px; padding-right: 0px">
+          <div style="background: #f1efe4">
+            <div class="navbar-header">
+              <button
+                type="button"
+                class="navbar-toggle"
+                data-toggle="collapse"
+                data-target=".navbar-collapse"
+              >
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="index.php">
+                <img src="images/Logo.png" alt="logo" width="215" />
+              </a>
+            </div>
+            <div class="collapse navbar-collapse">
+              <ul class="nav navbar-nav navbar-right">
+                <li
+                  class="start dropdown visible-lg visible-md visible-sm"
+                  style="height: 72px; margin-top: 0px"
+                >
+                  <a
+                    href="./index.php?c=self_report"
+                    style="
+                      line-height: 10px;
+                      padding-top: 2px;
+                      padding-bottom: 2px;
+                      padding-left: 5px;
+                      padding-right: 2px;
+                    "
+                  >
+                    <span style="line-height: 14px"
+                      >14天症狀<br />監測回報</span
+                    >
+                    <br /><span style="font-size: 9px; letter-spacing: -0px"
+                      >The 14-day record<br />
+                      for monitoring <br />symptoms and signs<span
+                      > </span></span
+                  ></a>
+                </li>
+                <li class="start dropdown visible-xs">
+                  <a href="./index.php?c=self_report">
+                    14天症狀監測回報
+                    <span style="letter-spacing: -0.5x"
+                      >The 14-day record for monitoring symptoms and signs<span
+                      > </span></span
+                  ></a>
+                </li>
+                <!--20210611目前先停用-->
+                <!-- <li class="dropdown visible-lg visible-md visible-sm" style="height:72px;margin-top:0px;">				
+								<a href="./index.php?c=plus" style="line-height: 10px;padding-top:2px;padding-bottom:2px;padding-left:0px;padding-right:0px;">
+									<span style="line-height: 14px;">檢疫後7天追蹤</span> <br><span style="font-size:8.5px;letter-spacing:-0.3px;">7-day Health<br>Tracking Down<br>After Quarantine<br>Ends<span>
+								</a>
+							</li>
+							<li class="dropdown visible-xs">				
+								<a href="./index.php?c=plus">
+									檢疫後7天追蹤 7-day Health Tracking Down After Quarantine Ends
+								</a>
+							</li> -->
+                <li
+                  class="dropdown visible-lg visible-md visible-sm"
+                  style="height: 72px; margin-top: 0px"
+                >
+                  <a
+                    href="./index.php?c=arch"
+                    style="
+                      font-size: 12px;
+                      line-height: 11.2px;
+                      padding-top: 2px;
+                      padding-bottom: 2px;
+                      padding-left: 0px;
+                      padding-right: 0px;
+                    "
+                  >
+                    <span style="line-height: 14px; font-size: 14px"
+                      >每日體溫及症狀紀錄</span
+                    >
+                    <br /><span style="font-size: 9px; letter-spacing: -0px"
+                      >Daily body temperature <br />and symptom record<br />tracking<span
+                      > </span></span
+                  ></a>
+                </li>
+                <li class="dropdown visible-xs">
+                  <a href="./index.php?c=arch">
+                    每日體溫及症狀紀錄
+                    <span style="letter-spacing: -0.5x"
+                      >Daily body temperature and symptom record tracking<span
+                      > </span></span
+                  ></a>
+                </li>
+                <li
+                  class="dropdown visible-lg visible-md visible-sm"
+                  style="height: 72px; margin-top: 0px"
+                >
+                  <a
+                    href="./index.php?c=rpt007"
+                    style="
+                      line-height: 10px;
+                      padding-top: 0px;
+                      padding-bottom: 0px;
+                      padding-left: 0px;
+                      padding-right: 0px;
+                    "
+                  >
+                    <span style="line-height: 14px">問卷填報<br />狀況查詢</span
+                    ><br /><span
+                      style="
+                        line-height: 10px;
+                        font-size: 9px;
+                        letter-spacing: -0px;
+                      "
+                      >Submission<br />confirmation</span
+                    >
+                  </a>
+                </li>
+
+                <li
+                  class="dropdown visible-lg visible-md visible-sm"
+                  style="height: 72px; margin-top: 0px"
+                >
+                  <a
+                    href="./index.php?c=rollcall"
+                    style="
+                      line-height: 10px;
+                      padding-top: 0px;
+                      padding-bottom: 0px;
+                      padding-left: 2px;
+                      padding-right: 2px;
+                    "
+                  >
+                    <span style="font-size: 18px; line-height: 22px"
+                      >課程<br />防疫<br />點名</span
+                    >
+                  </a>
+                </li>
+                <li class="dropdown visible-xs">
+                  <a href="./index.php?c=rollcall"> 課程防疫點名 </a>
+                </li>
+                <li
+                  class="dropdown visible-lg visible-md visible-sm"
+                  style="height: 72px; margin-top: 0px"
+                >
+                  <a
+                    href="./index.php?c=rpt308"
+                    style="
+                      line-height: 10px;
+                      padding-top: 0px;
+                      padding-bottom: 0px;
+                      padding-left: 2px;
+                      padding-right: 2px;
+                    "
+                  >
+                    <span style="font-size: 18px; line-height: 22px"
+                      >點名<br />紀錄<br />查詢</span
+                    >
+                  </a>
+                </li>
+                <li class="dropdown visible-xs">
+                  <a href="./index.php?c=rpt308"> 點名紀錄查詢 </a>
+                </li>
+                <li
+                  class="dropdown visible-lg visible-md visible-sm"
+                  style="height: 72px; margin-top: 0px"
+                >
+                  <a
+                    href="https://app.pers.ncku.edu.tw/ncov_web/"
+                    target="_blank"
+                    style="
+                      line-height: 10px;
+                      padding-top: 0px;
+                      padding-bottom: 0px;
+                      padding-left: 0px;
+                      padding-right: 0px;
+                    "
+                  >
+                    <span style="font-size: 12px; line-height: 12px"
+                      >回防疫網頁專區</span
+                    ><br /><span
+                      style="
+                        line-height: 9px;
+                        font-size: 9px;
+                        letter-spacing: -0.3px;
+                      "
+                      >Back to <br />Prevention of<br />Coronavirus
+                      <br />Infection <br />Section
+                    </span>
+                  </a>
+                </li>
+                <li class="dropdown visible-xs">
+                  <a
+                    href="https://app.pers.ncku.edu.tw/ncov_web/"
+                    target="_blank"
+                  >
+                    回防疫網頁專區
+                  </a>
+                </li>
+                <li
+                  class="dropdown visible-lg visible-md visible-sm"
+                  style="height: 72px; margin-top: 0px"
+                >
+                  <a
+                    href="http://www.ncku.edu.tw/"
+                    target="_blank"
+                    style="
+                      line-height: 10px;
+                      padding-top: 0px;
+                      padding-bottom: 0px;
+                      padding-left: 0px;
+                      padding-right: 0px;
+                    "
+                  >
+                    <span style="font-size: 12px; line-height: 12px"
+                      >回成大<br />首頁</span
+                    ><br /><span
+                      style="
+                        line-height: 10px;
+                        font-size: 9px;
+                        letter-spacing: -0.3px;
+                      "
+                      >Back to <br />Top page<br />
+                      of NCKU</span
+                    >
+                  </a>
+                </li>
+                <li class="dropdown visible-xs">
+                  <a href="http://www.ncku.edu.tw/" target="_blank">
+                    回成大首頁 Back to Top page of NCKU
+                  </a>
+                </li>
+
+                <li
+                  class="end visible-lg visible-md visible-sm"
+                  style="height: 72px; margin-top: 0px"
+                >
+                  <a
+                    href="./index.php?c=auth&amp;m=logout&amp;incku"
+                    style="
+                      line-height: 19px;
+                      padding-top: 5px;
+                      padding-bottom: 5px;
+                      padding-left: 0px;
+                      padding-right: 0px;
+                    "
+                  >
+                    登出<br /><span
+                      style="font-size: 10px; letter-spacing: -0.5x"
+                      >Log<br />out</span
+                    >
+                  </a>
+                </li>
+                <li class="end visible-xs">
+                  <a href="./index.php?c=auth&amp;m=logout&amp;incku">
+                    登出 Log out
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <!--小視窗程式名稱開始-->
+          <div class="apName visible-lg visible-md visible-sm">
+            <span>
+              新型冠狀病毒（COVID-19）資訊平台專區<br />每日體溫及症狀紀錄
+            </span>
+          </div>
+          <div class="apName visible-xs">
+            <span style="font-size: medium">
+              新型冠狀病毒（COVID-19）資訊平台專區<br />每日體溫及症狀紀錄
+            </span>
+          </div>
+          <div class="col-md-8 apName_1">
+            <span>
+              <a href="index.php?c=portal">首頁 Home</a>
+              &nbsp;&gt;&nbsp;每日體溫及症狀紀錄<br />Daily body temperature and
+              symptom record tracking
+            </span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="container theme-showcase" role="main">
+      <div id="main_content" style="padding-top: 0">
+        <div class="grid" style="position: relative; zoom: 1">
+          <div class="grid_content">
+            <div
+              class="grid_data_div"
+              style="height: 100%; width: 85%; padding: 15px; margin: auto"
+            >
+              <form>
+                <div class="form-group">
+                  <label for="exampleInputEmail1">姓名</label>
+                  <input
+                    class="form-control"
+                    id="stu-name"
+                    placeholder="輸入姓名"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputPassword1">學號</label>
+                  <input
+                    class="form-control"
+                    id="stu-id"
+                    placeholder="輸入學號"
+                  />
+                </div>
+                <button
+                  type="submit"
+                  class="btn btn-primary"
+                  onclick="show_greenlight()"
+                >
+                  顯示綠燈
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="ncov_style form modal fade in"
+      id="show_light"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="myModalLabel"
+      aria-hidden="false"
+      data-backdrop="static"
+      data-keyboard="false"
+      style="z-index: 1030; display: none"
+    >
+      <div
+        class="modal-backdrop fade in"
+        style="z-index: 1020; height: 686px"
+      ></div>
+      <div class="modal-dialog modal-md">
+        <div class="modal-content2">
+          <div class="modal-header2">
+            <div class="modal-title">
+              <button
+                type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-hidden="true"
+              >
+                x
+              </button>
+              <div>
+                <span style="font-size: large" id="vtitle">
+                  <span style="float: right">
+                    <a
+                      onclick="javascript:setLang_arch('cht');return false;"
+                      href="#"
+                      ><span
+                        class="lang"
+                        lang="zh_tw"
+                        style="
+                          font-family: Microsoft JhengHei;
+                          color: #000000;
+                          font-weight: 600;
+                        "
+                        >中文</span
+                      ></a
+                    >｜
+                    <a
+                      onclick="javascript:setLang_arch('eng');return false;"
+                      href="#"
+                      ><span
+                        class="lang"
+                        lang="eng"
+                        style="
+                          font-family: Microsoft JhengHei;
+                          color: #000000;
+                          font-weight: 600;
+                          padding-right: 20px;
+                        "
+                        >EN
+                      </span></a
+                    >
+                  </span>
+                </span>
+              </div>
+              <div class="title-font">
+                <span class="ncov_lang_cht" style="display: inline"
+                  >風險評估結果</span
+                ><span class="ncov_lang_eng" style="display: none"
+                  >Risk Assessment Results</span
+                >
+              </div>
+            </div>
+          </div>
+          <!-- #headerend-->
+          <div
+            class="modal-body"
+            style="font-size: large; padding-bottom: 0; padding-top: 0"
+          >
+            <div class="tc-tabs-style1">
+              <div class="tab-content" style="margin-top: 0">
+                <div>
+                  <table class="led_font2">
+                    <tbody>
+                      <tr>
+                        <td class="led_width">
+                          <span class="ncov_lang_cht">記錄日期</span
+                          ><span class="ncov_lang_eng" style="display: none"
+                            >Date of Record</span
+                          >
+                          <span class="visible-xs"></span>
+                        </td>
+                        <td style="text-align: left">
+                          <div class="green-bg" id="submit_time">
+                            2022-02-14 14:12:20
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <span class="ncov_lang_cht">學生姓名</span
+                          ><span class="ncov_lang_eng" style="display: none"
+                            >Student's Name</span
+                          >
+                          <span class="visible-xs"></span>
+                        </td>
+                        <td style="text-align: left">
+                          <div class="green-bg" id="student_name"></div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <span class="ncov_lang_cht">學生證號</span
+                          ><span class="ncov_lang_eng" style="display: none"
+                            >Student ID No.</span
+                          >
+                          <span class="visible-xs"></span>
+                        </td>
+                        <td style="text-align: left">
+                          <div class="green-bg" id="student_id"></div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <span class="ncov_lang_cht">在學狀態</span
+                          ><span class="ncov_lang_eng" style="display: none"
+                            >Enrollment Status</span
+                          >
+                          <span class="visible-xs"></span>
+                        </td>
+                        <td style="text-align: left">
+                          <div class="green-bg">
+                            <span class="ncov_lang_cht">註冊(在學)</span
+                            ><span class="ncov_lang_eng" style="display: none"
+                              >Registered (Currently Enrolled)</span
+                            >
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <p
+                    class="tocc_result_hint"
+                    style="
+                      text-align: center;
+                      font-weight: bold;
+                      color: #098b55;
+                      padding: 5px;
+                      font-size: 24px;
+                    "
+                  >
+                    <span class="ncov_lang_cht">綠燈</span
+                    ><span class="ncov_lang_eng" style="display: none"
+                      >Green light</span
+                    >
+                  </p>
+                  <div class="bg">
+                    <div
+                      class="animation-ctn"
+                      style="padding-top: 5px; text-align: center"
+                    >
+                      <div class="icon icon--order-success svg">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          xmlns:xlink="http://www.w3.org/1999/xlink"
+                          width="150"
+                          height="150"
+                          viewBox="0 0 150 150"
+                        >
+                          <defs>
+                            <style>
+                              .a {
+                                clip-path: url(#b);
+                              }
+                              .b,
+                              .d {
+                                fill: #098b55;
+                              }
+                              .b {
+                                stroke: #098b55;
+                                stroke-dashoffset: 960px;
+                                stroke-width: 2px;
+                                stroke-dasharray: 480 480;
+                              }
+                              .c {
+                                fill: #fff;
+                              }
+                              .d {
+                                fill-rule: evenodd;
+                              }
+                            </style>
+                            <clipPath id="b">
+                              <rect width="150" height="150"></rect>
+                            </clipPath>
+                          </defs>
+                          <g id="a" class="a">
+                            <path
+                              class="b"
+                              d="M72,0A72,72,0,1,1,0,72,72,72,0,0,1,72,0Z"
+                              transform="translate(3.5 3.5)"
+                            ></path>
+                            <path
+                              class="c"
+                              d="M54,0A54,54,0,1,1,0,54,54,54,0,0,1,54,0Z"
+                              transform="translate(21 21)"
+                            ></path>
+                            <g transform="translate(84.467 88.633)">
+                              <path
+                                class="d"
+                                d="M203.067,565.461a24.754,24.754,0,0,1-.364,5.634c-.115.92-.21,2.353-.743,2.881a7.762,7.762,0,0,1-1.217,4.041l-.148.64-.455.417a7.553,7.553,0,0,1-3.6,3.627c-.609.762-.073.343-1,.753-.335.68-.622.734-1.135,1.542a16.475,16.475,0,0,1-.946,1.6,34.6,34.6,0,0,1-1.642,4.088c-.333.7-.5,1.179-.836,1.956-.421.976-.449,1.2-1.2,1.661-.156,1.445-2.03,3.7-2.828,4.831a5.245,5.245,0,0,1-5.256,2.494l.074,28.03,2.058.4c1.1.172,3.3.245,3.989.968,2.073-.184,7.906,1.257,10.683,1.523,1.023.022,2.849-.08,3.435.415,3.135-.483,14.375,1.09,18.581-1.092a10.989,10.989,0,0,0,2.777-2.227c.716-.663.272-.6.949-.7.423-.8.272-.766.971-1.285-.073-.928-.084-1.937-.066-2.892a2.522,2.522,0,0,1,.136-1.167c.174-.513.172-.347.343-.47a9.132,9.132,0,0,1,2.515-2.744l.781-1.131c.325-2.055-.074-2.248-.75-3.93a8.754,8.754,0,0,1-.5-1.671,1.428,1.428,0,0,1,.538-1.384c.134-.451-.033-.1.331-.62l.369-.445c.312-.362.53-.585.809-.89l.444-.668c.584-1.006.424-1.063.109-2.211a22.565,22.565,0,0,1-1.609-2.593c-.518-1.072-.324-2.532.565-2.751a6.581,6.581,0,0,1,1.525-2.326,13.749,13.749,0,0,0-2.641-5.414c-1.3-1.7-2.528-1.841-5.248-2.224-1.44-.031-1.385.029-2.07-.332-.967.366-11.827.4-13.155.107a4,4,0,0,1,.023-3.1,5.356,5.356,0,0,1,1.254-2.88c.183-3.294,4.256-5.867,3.552-13.028A9.318,9.318,0,0,0,210,567.068c-1.86-1.9-3.157-1.909-6.339-2.2Z"
+                                transform="translate(-207.646 -612.5)"
+                              ></path>
+                              <path
+                                class="d"
+                                d="M136.031,695.128c-.671-.7-.371-.251-.638-1.238-1.32-.227.54-.964-4.677-.944-9.2.036-8.582-.761-8.582,8.14,0,3.242-.389,20.185.361,21.788.709,1.517,1.941,1.483,4.064,1.47,9.955-.061,9.314.71,9.313-7.2C135.872,713.662,135.446,697.018,136.031,695.128Z"
+                                transform="translate(-164.5 -705.119)"
+                              ></path>
+                            </g>
+                          </g>
+                        </svg>
+                      </div>
+                    </div>
+                    <p
+                      class="tocc_result_hint2"
+                      style="
+                        text-align: center;
+                        font-weight: bold;
+                        color: #098b55;
+                        padding: 5px;
+                        padding-top: 10px;
+                      "
+                    >
+                      <span style="word-break: break-all; word-wrap: break-word"
+                        ><span class="ncov_lang_cht"
+                          >學校祝福你繼續維持健康的狀態</span
+                        ><span class="ncov_lang_eng" style="display: none"
+                          >NCKU wishes you safe and healthy.</span
+                        ></span
+                      >
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer2">
+            <button type="button" class="btn btn-primary" data-dismiss="modal">
+              <span class="ncov_lang_cht" style="display: inline">關閉</span
+              ><span class="ncov_lang_eng" style="display: none">Close</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--footer-->
+    <footer id="footer">
+      <div class="container">
+        <div
+          class="copyright-text text-center"
+          style="margin-top: 0px !important"
+        >
+          版權所有 <i class="fa fa-copyright"></i> 2022
+          國立成功大學防疫小組監製<br />防疫諮詢電話: 06-2757575轉50430
+        </div>
+      </div>
+
+      <div id="gotop"><center>^</center></div>
+    </footer>
+
+    <!--/#footer-->
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+    <script>
+      function setLang_arch(cvalue) {
+        //預設保留7天
+        if (cvalue == "eng") {
+          $("#ncov_lang").text("eng");
+          $(".ncov_lang_cht").hide();
+          $(".ncov_lang_eng").show();
+          $("#temper_type_td").find("li").css("display", "block");
+          $(".haschfp_city_li").css("display", "inline");
+          $(".hastyfp_city_li").css("display", "inline");
+          $("#temper_data").attr(
+            "placeholder",
+            "Please fill in your body temperature"
+          );
+          $("#symptoms_99_other").attr(
+            "placeholder",
+            "Please describe other symptoms"
+          );
+          $("#medical_remark").attr(
+            "placeholder",
+            "Name of the Hospital, Reason for Your Visit, Time"
+          );
+          $('#live_type option[value=""]').text(
+            "--Select Current area where you live--"
+          );
+          $('#live_type option[value="1"]').text("School dorm");
+          $('#live_type option[value="2"]').text("Off-campus residence");
+          $('#live_area option[value=""]').text("--Select Dormitory Name--");
+          $("#stay_1_other,#stay_2_other,#stay_3_other,#stay_99_other").attr(
+            "placeholder",
+            "Please fill in the details of your stay"
+          );
+          $("#hastyfp_notice_other").attr(
+            "placeholder",
+            "Please fill in the location mentioned in the notification."
+          );
+          $("#hastyfp_city_tn").attr(
+            "placeholder",
+            "Related COVID-19 cases movements publicized by the Tainan City Government"
+          );
+          $("#hastyfp_city_other").attr(
+            "placeholder",
+            "Please fill in the places where local cases ever visited"
+          );
+          $("#haschfp_city_other").attr(
+            "placeholder",
+            "Which district, county, or city do these relatives and friends come from?"
+          );
+          $("#taketest_remark").attr(
+            "placeholder",
+            "Please fill in screening location"
+          );
+          $(".taketest_remark").attr(
+            "placeholder",
+            "Please fill in your location of the screening test"
+          );
+          $("#taketest_result_other").attr(
+            "placeholder",
+            "Please explain the screening test result"
+          );
+          $("#taketest_tools_other").attr(
+            "placeholder",
+            "Please fill in tools of screening test"
+          );
+          $("#taketest_date").attr("placeholder", "Screening date");
+          $('#vaccine_num option[value=""]').text(
+            "--How many doses of COVID-19 vaccines have you received?--"
+          );
+          $('#vaccine_num option[value="1"]').text("1st dose");
+          $('#vaccine_num option[value="2"]').text("2nd dose");
+          $('#vaccine_num option[value="3"]').text("3rd dose");
+          if ($("#user_role").text() == "G") {
+            $("#vaccine_date1").attr("placeholder", "Date of first dose");
+            $("#vaccine_date2").attr("placeholder", "Date of second dose");
+            $("#vaccine_date3").attr("placeholder", "Date of third dose");
+          } else {
+            $("#vaccine_date1").attr("placeholder", "Date of first dose");
+            $("#vaccine_date2").attr("placeholder", "Date of second dose");
+            $("#vaccine_date3").attr("placeholder", "Date of third dose");
+          }
+          $(
+            "#vaccine_brand1_other,#vaccine_brand2_other,#vaccine_brand3_other"
+          ).attr("placeholder", "Which brand?");
+          $("#vaccine_sym1,#vaccine_sym2,#vaccine_sym3").attr(
+            "placeholder",
+            "Symptoms after the vaccination"
+          );
+          $("#vaccine_cc1_desc,#vaccine_cc2_desc,#vaccine_cc3_desc").attr(
+            "placeholder",
+            "Please fill in the country"
+          );
+
+          $('#report_type option[value=""]').text(
+            "--Select a Health Management Type--"
+          );
+          $('#report_type option[value="1"]').text("1.Home isolation");
+          $('#report_type option[value="2"]').text("2.Home quarantine");
+          $('#report_type option[value="4"]').text(
+            "3.Enhanced self-health management"
+          );
+          $('#report_type option[value="3"]').text("4.Self-health management");
+          $('#quarant option[value=""]').text(
+            "--Please select quarantine site--"
+          );
+          $('#quarant option[value="1"]').text("Quarantine hotel");
+          $('#quarant option[value="3"]').text("Centralized quarantine camp");
+          $("#quarant_other").attr(
+            "placeholder",
+            "Please fill in your quarantine site"
+          );
+          $("#start_date").attr(
+            "placeholder",
+            "Tracking Start Date (Please enter the date)"
+          );
+          $("#end_date").attr(
+            "placeholder",
+            "Tracking End Date (Please enter the date)"
+          );
+          $("#q8_2_1").attr(
+            "placeholder",
+            "Please fill in the Country visited prior to arrival in Taiwan"
+          );
+          $("#q8_2_2").attr(
+            "placeholder",
+            "Please fill in the City visited prior to arrival in Taiwan"
+          );
+          $("#q8_2_3").attr(
+            "placeholder",
+            "Please fill in the Date of arrival"
+          );
+
+          $('#vaccine2_num option[value="1"]').text("1st dose");
+          $('#vaccine2_num option[value="2"]').text("2nd dose");
+          $('#vaccine2_num option[value="3"]').text("3rd dose");
+          if ($("#user_role").text() == "G") {
+            $("#vaccine2_date1").attr("placeholder", "Date of first dose");
+            $("#vaccine2_date2").attr("placeholder", "Date of second dose");
+            $("#vaccine2_date3").attr("placeholder", "Date of third dose");
+          } else {
+            $("#vaccine2_date1").attr("placeholder", "Date of first dose");
+            $("#vaccine2_date2").attr("placeholder", "Date of second dose");
+            $("#vaccine2_date3").attr("placeholder", "Date of third dose");
+          }
+          $(
+            "#vaccine2_brand1_other,#vaccine2_brand2_other,#vaccine2_brand3_other"
+          ).attr("placeholder", "Which brand?");
+          $("#vaccine2_sym1,#vaccine2_sym2,#vaccine2_sym3").attr(
+            "placeholder",
+            "Symptoms after the vaccination"
+          );
+          $("#vaccine2_cc1_desc,#vaccine2_cc2_desc,#vaccine2_cc3_desc").attr(
+            "placeholder",
+            "Please fill in the country"
+          );
+        } else {
+          //預設中文
+          $("#ncov_lang").text("cht");
+          $(".ncov_lang_cht").show();
+          $(".ncov_lang_eng").hide();
+          $("#temper_type_td").find("li").css("display", "inline");
+          $(".haschfp_city_li").css("display", "inline");
+          $(".hastyfp_city_li").css("display", "inline");
+          $("#temper_data").attr("placeholder", "請填寫您的體溫");
+          $("#symptoms_99_other").attr("placeholder", "請描述其他症狀");
+          $("#medical_remark").attr(
+            "placeholder",
+            "醫院名稱, 看診原因, 就醫時間"
+          );
+          $('#live_type option[value=""]').text("--請選擇目前居住區域--");
+          $('#live_type option[value="1"]').text("學校宿舍");
+          $('#live_type option[value="2"]').text("校外住宿");
+          $('#live_area option[value=""]').text("--請選擇宿舍名稱--");
+          $("#stay_1_other,#stay_2_other,#stay_3_other,#stay_99_other").attr(
+            "placeholder",
+            "請填寫您停留過的細節"
+          );
+          $("#hastyfp_notice_other").attr(
+            "placeholder",
+            "請填該訊息所顯示的地點"
+          );
+
+          $(
+            "#vaccine_brand1_other,#vaccine_brand2_other,#vaccine_brand3_other"
+          ).attr("placeholder", "哪一品牌?");
+          $("#vaccine_sym1,#vaccine_sym2,#vaccine_sym3").attr(
+            "placeholder",
+            "打完疫苗後的症狀"
+          );
+          $("#vaccine_cc1_desc,#vaccine_cc2_desc,#vaccine_cc3_desc").attr(
+            "placeholder",
+            "請填國家"
+          );
+
+          $('#report_type option[value=""]').text(
+            "--Select a Health Management Type--"
+          );
+          $('#report_type option[value=""]').text("--請選擇健康管理類別--");
+          $('#report_type option[value="1"]').text("1.居家隔離");
+          $('#report_type option[value="2"]').text("2.居家檢疫");
+          $('#report_type option[value="4"]').text("3.加強自主健康管理");
+          $('#report_type option[value="3"]').text("4.自主健康管理");
+          $('#quarant option[value=""]').text("--請選擇居家檢疫地點--");
+          $('#quarant option[value="1"]').text("防疫旅館");
+          $('#quarant option[value="3"]').text("集中檢疫所");
+          $("#quarant_other").attr("placeholder", "請填寫您居家檢疫的地點");
+          $("#start_date").attr("placeholder", "請選擇管制起期");
+          $("#end_date").attr("placeholder", "請選擇管制迄期");
+          $("#q8_2_1").attr("placeholder", "請填寫入境前來源國家");
+          $("#q8_2_2").attr("placeholder", "請填寫入境前來源城巿");
+          $("#q8_2_3").attr("placeholder", "請填寫入境日期");
+
+          $('#vaccine2_num option[value="1"]').text("第一劑");
+          $('#vaccine2_num option[value="2"]').text("第二劑");
+          $('#vaccine2_num option[value="3"]').text("第三劑");
+          if ($("#user_role").text() == "G") {
+            $("#vaccine2_date1").attr("placeholder", "第一劑日期");
+            $("#vaccine2_date2").attr("placeholder", "第二劑日期");
+            $("#vaccine2_date3").attr("placeholder", "第三劑日期");
+          } else {
+            $("#vaccine2_date1").attr("placeholder", "第一劑日期");
+            $("#vaccine2_date2").attr("placeholder", "第二劑日期");
+            $("#vaccine2_date3").attr("placeholder", "第三劑日期");
+          }
+          $(
+            "#vaccine2_brand1_other,#vaccine2_brand2_other,#vaccine2_brand3_other"
+          ).attr("placeholder", "哪一品牌?");
+          $("#vaccine2_sym1,#vaccine2_sym2,#vaccine2_sym3").attr(
+            "placeholder",
+            "打完疫苗後的症狀"
+          );
+          $("#vaccine2_cc1_desc,#vaccine2_cc2_desc,#vaccine2_cc3_desc").attr(
+            "placeholder",
+            "請填國家"
+          );
+        }
+        return false;
+      }
+    </script>
+    <script>
+      function padTo2Digits(num) {
+        return num.toString().padStart(2, "0");
+      }
+      function formatDate(date) {
+        return (
+          [
+            date.getFullYear(),
+            padTo2Digits(date.getMonth() + 1),
+            padTo2Digits(date.getDate()),
+          ].join("-") +
+          " " +
+          [
+            padTo2Digits(date.getHours()),
+            padTo2Digits(date.getMinutes()),
+            padTo2Digits(date.getSeconds()),
+          ].join(":")
+        );
+      }
+      function set_and_show() {
+        $("#student_name").html(Cookies.get("name"));
+        $("#student_id").html(Cookies.get("id"));
+        $("#submit_time").html(formatDate(new Date()));
+        $("#show_light").css({ display: "block" });
+      }
+      if (Cookies.get("name")) {
+        set_and_show();
+      }
+      function show_greenlight() {
+        Cookies.set("name", $("#stu-name").val());
+        Cookies.set("id", $("#stu-id").val().toUpperCase());
+        console.log($("#stu-id").val());
+        console.log(Cookies.get("name"));
+        set_and_show();
+      }
+    </script>
+  </body>
+</html>

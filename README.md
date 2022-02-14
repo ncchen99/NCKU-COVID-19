@@ -1,2 +1,4 @@
-# NCKU-COVID-19
-綠燈精靈🐢
+# NCKU COVID-19 information platform 綠燈精靈🐢
+
+
+

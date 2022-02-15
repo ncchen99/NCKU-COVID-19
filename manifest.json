@@ -3,26 +3,21 @@
   "name": "國立成功大學新型冠狀病毒（COVID-19）資訊平台專區",
   "icons": [
     {
-      "src": "/images/icons-vector.svg",
-      "type": "image/svg+xml",
-      "sizes": "256x256"
-    },
-    {
       "src": "/images/icons-192.png",
       "type": "image/png",
       "sizes": "192x192"
     }
   ],
-  "start_url": "/",
+  "start_url": ".",
   "background_color": "#FB9D89",
   "display": "standalone",
-  "scope": "/",
+  "orientation": "portrait-primary",
   "description": "國立成功大學 新型冠狀病毒（COVID-19）資訊平台專區",
   "screenshots": [
     {
       "src": "/images/screenshot1.jpg",
       "type": "image/jpg",
-      "sizes": "1080×2245"
+      "sizes": "1080x2245"
     }
   ]
 }

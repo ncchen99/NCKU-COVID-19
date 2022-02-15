@@ -9,5 +9,6 @@ self.addEventListener("activate", (event) => {
 });
 
 this.addEventListener("fetch", function (event) {
+  console.log("喔喔喔");
   // it can be empty if you just want to get rid of that error
 });

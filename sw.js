@@ -5,5 +5,5 @@ self.addEventListener("install", (event) => {
 
 // activate
 self.addEventListener("activate", (event) => {
-  console.log("now ready to handle fetches!");
+  console.log("小屋歸🐢");
 });

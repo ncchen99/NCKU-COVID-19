@@ -1,6 +1,6 @@
 {
-  "short_name": "新型冠狀病毒",
-  "name": "新型冠狀病毒（COVID-19）資訊平台專區",
+  "short_name": "國立成功大學",
+  "name": "國立成功大學新型冠狀病毒（COVID-19）資訊平台專區",
   "icons": [
     {
       "src": "/images/icons-vector.svg",
@@ -14,21 +14,16 @@
     }
   ],
   "start_url": "/",
-  "background_color": "#3367D6",
-  "display": "fullscreen",
+  "background_color": "#FB9D89",
+  "display": "standalone",
   "scope": "/",
-  "theme_color": "#3367D6",
-  "description": "新型冠狀病毒（COVID-19）資訊平台專區",
+  "theme_color": "#FB9D89",
+  "description": "國立成功大學 新型冠狀病毒（COVID-19）資訊平台專區",
   "screenshots": [
-    {
-      "src": "/images/screenshot1.png",
-      "type": "image/png",
-      "sizes": "1080x2340"
-    },
     {
       "src": "/images/screenshot1.jpg",
       "type": "image/jpg",
-      "sizes": "1080x2340"
+      "sizes": "1080×2245"
     }
   ]
 }

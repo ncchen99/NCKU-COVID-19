@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="" />
     <meta name="author" content="" />
+    <meta
+      name="theme-color"
+      media="(prefers-color-scheme: light)"
+      content="white"
+    />
+    <link rel="manifest" href="/manifest.json" />
     <link rel="shortcut icon" href="./images/favicon.ico?1644821050" />
     <link rel="bookmark" href="./images/favicon.ico?1644821050" />
     <title>
@@ -15,7 +21,14 @@
     <link href="bootstrap/css/bootstrap_ncku_1.css" rel="stylesheet" />
     <link href="bootstrap/css/bootstrap_tep.css" rel="stylesheet" />
     <link href="bootstrap/css/responsive.css" rel="stylesheet" />
-
+    <script>
+      if ("serviceWorker" in navigator) {
+        navigator.serviceWorker
+          .register("/sw.js")
+          .then((reg) => console.log("完成 SW 設定!", reg))
+          .catch((err) => console.log("Error!", err));
+      }
+    </script>
     <style type="text/css">
       /*table css*/
       .grid {

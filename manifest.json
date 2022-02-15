@@ -1,0 +1,34 @@
+{
+  "short_name": "新型冠狀病毒",
+  "name": "新型冠狀病毒（COVID-19）資訊平台專區",
+  "icons": [
+    {
+      "src": "/images/icons-vector.svg",
+      "type": "image/svg+xml",
+      "sizes": "256x256"
+    },
+    {
+      "src": "/images/icons-192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    }
+  ],
+  "start_url": "/",
+  "background_color": "#3367D6",
+  "display": "fullscreen",
+  "scope": "/",
+  "theme_color": "#3367D6",
+  "description": "新型冠狀病毒（COVID-19）資訊平台專區",
+  "screenshots": [
+    {
+      "src": "/images/screenshot1.png",
+      "type": "image/png",
+      "sizes": "1080x2340"
+    },
+    {
+      "src": "/images/screenshot1.jpg",
+      "type": "image/jpg",
+      "sizes": "1080x2340"
+    }
+  ]
+}

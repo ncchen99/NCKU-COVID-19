@@ -11,3 +11,20 @@
 
 3. 大功告成囉🐢
 
+
+## 怎麼重設名字和學號🥺
+
+1. 按網址旁邊的🔒
+   
+    <img src="https://i.imgur.com/YkYqG6z.jpg" alt="drawing" width="200"/>
+
+1. 按 `Cookie`
+    
+    <img src="https://i.imgur.com/Z0CuDJE.jpg" alt="drawing" width="200"/>
+
+1. 按 🗑 垃圾桶按鈕 
+
+    <img src="https://i.imgur.com/n49HyWG.jpg" alt="drawing" width="200"/>
+
+1. 重新整理網頁🐍
+

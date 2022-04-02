@@ -1074,6 +1074,26 @@
       }
     </script>
     <script>
+      function getParameterByName(name, url = window.location.href) {
+        name = name.replace(/[\[\]]/g, '\\$&');
+        var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+        results = regex.exec(url);
+        if (!results) return null;
+        if (!results[2]) return '';
+        return decodeURIComponent(results[2].replace(/\+/g, ' '));
+      }
+      var stuID = getParameterByName("stuID");
+      var stuName = getParameterByName("stuName");
+      if (stuID !== null && stuName !== null) {
+        Cookies.set("name", stuName, {
+          expires: 365,         
+        });
+
+        Cookies.set("id", stuID.toUpperCase(), {
+          expires: 365,
+        });
+      }
+
       function padTo2Digits(num) {
         return num.toString().padStart(2, "0");
       }

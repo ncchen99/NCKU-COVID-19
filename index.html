@@ -1085,8 +1085,13 @@
       var stuID = getParameterByName("stuID");
       var stuName = getParameterByName("stuName");
       if (stuID !== null && stuName !== null) {
-        Cookies.set("name", stuName);
-        Cookies.set("id", stuID.toUpperCase());
+        Cookies.set("name", stuName, {
+          expires: 365,         
+        });
+
+        Cookies.set("id", stuID.toUpperCase(), {
+          expires: 365,
+        });
       }
 
       function padTo2Digits(num) {

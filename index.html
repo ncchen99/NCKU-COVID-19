@@ -1074,6 +1074,12 @@
       }
     </script>
     <script>
+      const closeButton = document.querySelector(".modal-footer2");
+      closeButton.addEventListener("click", cleanCookies);
+      function cleanCookies() {
+        alert('Clicked!');
+      }
+
       function getParameterByName(name, url = window.location.href) {
         name = name.replace(/[\[\]]/g, '\\$&');
         var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
@@ -1082,8 +1088,8 @@
         if (!results[2]) return '';
         return decodeURIComponent(results[2].replace(/\+/g, ' '));
       }
-      var stuID = getParameterByName("stuID");
-      var stuName = getParameterByName("stuName");
+      const stuID = getParameterByName("stuID");
+      const stuName = getParameterByName("stuName");
       if (stuID !== null && stuName !== null) {
         Cookies.set("name", stuName, {
           expires: 365,         

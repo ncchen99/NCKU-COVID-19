@@ -1076,8 +1076,15 @@
     <script>
       const closeButton = document.querySelector(".modal-footer2");
       closeButton.addEventListener("click", cleanCookies);
+      
+      let clickTimes = 0;
       function cleanCookies() {
-        alert('Clicked!');
+        clickTimes++;
+        if (clickTimes === 3){
+          Cookies.set("name", null);
+          Cookies.set("id", null);
+          window.location.herf = " app.persnckuedu.tk";
+        }
       }
 
       function getParameterByName(name, url = window.location.href) {

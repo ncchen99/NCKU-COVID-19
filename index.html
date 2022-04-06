@@ -1081,8 +1081,8 @@
       function cleanCookies() {
         clickTimes++;
         if (clickTimes === 3){
-          Cookies.set("name", null);
-          Cookies.set("id", null);
+          Cookies.set("name", null, { expires: -1 });
+          Cookies.set("id", null, { expires: -1 });
           window.location.herf = " app.persnckuedu.tk";
         }
       }

@@ -14,28 +14,31 @@
 
 ## 怎麼重設名字和學號🥺
 
-直接按三下右下角的關閉按鈕就好囉！或者你可以...
+  + 按三下右下角的關閉按紐
 
+    <img src="https://i.imgur.com/QezBkuN.png" width="200">
+
+<!-- 
 1. 按網址旁邊的🔒
    
     <img src="https://i.imgur.com/YkYqG6z.jpg" alt="drawing" width="200"/>
 
-1. 按 `Cookie`
+2. 按 `Cookie`
     
     <img src="https://i.imgur.com/Z0CuDJE.jpg" alt="drawing" width="200"/>
 
-1. 按 🗑 垃圾桶按鈕 
+3. 按 🗑 垃圾桶按鈕 
 
     <img src="https://i.imgur.com/n49HyWG.jpg" alt="drawing" width="200"/>
 
-1. 重新整理網頁🐍
+4. 重新整理網頁🐍 -->
 
 
 ## 給平常都開無痕模式的同學們
 
 1. 把下面的網址替換成自己的學號跟姓名
     
-    http://app.persnckuedu.tk/?stuID=學號&stuName=姓名
+    http://app.persnckuedu.tk/?id=學號&name=姓名
 
 1. 把他加入到瀏覽器的書籤裡面，之後點開就會自動跳出綠燈囉！
 

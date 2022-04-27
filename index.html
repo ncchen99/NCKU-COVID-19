@@ -1076,30 +1076,30 @@
     <script>
       const closeButton = document.querySelector(".modal-footer2");
       closeButton.addEventListener("click", cleanCookies);
-      
+
       let clickTimes = 0;
       function cleanCookies() {
         clickTimes++;
-        if (clickTimes === 3){
-          Cookies.set("name", null, { expires: -1 });
-          Cookies.set("id", null, { expires: -1 });
-          window.location.href = "http://app.persnckuedu.tk";
+        if (clickTimes === 3) {
+          Cookies.remove("name");
+          Cookies.remove("id");
+          window.location.href = "/";
         }
       }
 
       function getParameterByName(name, url = window.location.href) {
-        name = name.replace(/[\[\]]/g, '\\$&');
-        var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
-        results = regex.exec(url);
+        name = name.replace(/[\[\]]/g, "\\$&");
+        var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+          results = regex.exec(url);
         if (!results) return null;
-        if (!results[2]) return '';
-        return decodeURIComponent(results[2].replace(/\+/g, ' '));
+        if (!results[2]) return "";
+        return decodeURIComponent(results[2].replace(/\+/g, " "));
       }
-      const stuID = getParameterByName("stuID");
-      const stuName = getParameterByName("stuName");
+      const stuID = getParameterByName("id");
+      const stuName = getParameterByName("name");
       if (stuID !== null && stuName !== null) {
         Cookies.set("name", stuName, {
-          expires: 365,         
+          expires: 365,
         });
 
         Cookies.set("id", stuID.toUpperCase(), {

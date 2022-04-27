@@ -14,6 +14,8 @@
 
 ## 怎麼重設名字和學號🥺
 
+直接按三下右下角的關閉按鈕就好囉！或者你可以...
+
 1. 按網址旁邊的🔒
    
     <img src="https://i.imgur.com/YkYqG6z.jpg" alt="drawing" width="200"/>

@@ -1126,8 +1126,8 @@
         );
       }
       function set_and_show() {
-        $("#student_name").html(Cookies.get("name"));
-        $("#student_id").html(Cookies.get("id"));
+        $("#student_name").text(Cookies.get("name"));
+        $("#student_id").text(Cookies.get("id"));
         $("#submit_time").html(formatDate(new Date()));
         $("#show_light").css({ display: "block" });
       }

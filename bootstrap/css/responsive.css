@@ -235,6 +235,7 @@
   }
   
   .navbar-header{
+    position: relative;
     padding:5px;
     background: #7d171b;
   }

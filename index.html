@@ -13,14 +13,17 @@
     <link rel="manifest" href="/manifest.json" />
     <link rel="shortcut icon" href="./images/favicon.ico?1644821050" />
     <link rel="bookmark" href="./images/favicon.ico?1644821050" />
+    <link rel="shortcut icon" type="image/x-icon" href="https://i.imgur.com/1f1z174.png">
     <title>
-      國立成功大學新型冠狀病毒（COVID-19）資訊平台專區 - 每日體溫及症狀紀錄
+      國立成功大學新型冠狀病毒 ( COVID-19 ) 資訊平台專區 - 每日體溫及症狀紀錄
     </title>
 
     <link href="bootstrap/css/bootstrap_ncku.css" rel="stylesheet" />
     <link href="bootstrap/css/bootstrap_ncku_1.css" rel="stylesheet" />
     <link href="bootstrap/css/bootstrap_tep.css" rel="stylesheet" />
     <link href="bootstrap/css/responsive.css" rel="stylesheet" />
+    <link href="bootstrap/css/navbar.css" rel="stylesheet" />
+    <script src="https://unpkg.com/vue@3.0.2"></script>
     <script>
       if ("serviceWorker" in navigator) {
         navigator.serviceWorker
@@ -252,12 +255,13 @@
       <div class="navbar navbar-inverse" role="navigation">
         <div class="container" style="padding-left: 0px; padding-right: 0px">
           <div style="background: #f1efe4">
-            <div class="navbar-header">
+            <div class="navbar-header" id="navbar-header">
               <button
                 type="button"
                 class="navbar-toggle"
                 data-toggle="collapse"
                 data-target=".navbar-collapse"
+                @click="showNavBar()"
               >
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
@@ -267,6 +271,17 @@
               <a class="navbar-brand" href="index.php">
                 <img src="images/Logo.png" alt="logo" width="215" />
               </a>
+              <div class="navbarContent" v-if="navbarShow">
+                <ul style="padding: 0;">
+                  <li v-for="items in content">
+                    <a :href="items.link">
+                      <p class="sidebarContent">
+                        {{items.ch}}
+                      </p>
+                    </a>
+                  </li>
+                </ul>
+              </div>
             </div>
             <div class="collapse navbar-collapse">
               <ul class="nav navbar-nav navbar-right">
@@ -1146,5 +1161,8 @@
         set_and_show();
       }
     </script>
+
+    <script src="sidebarHandle.js"></script>
+
   </body>
 </html>

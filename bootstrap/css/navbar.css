@@ -1,0 +1,29 @@
+.navbarContent {
+    position: absolute;
+    background-color: rgb(231, 228, 208);
+    height: flex;
+    width: 30%;
+    top: 60px;
+    right: 20px;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    padding: 0px 5px;
+    padding-top: 8px;
+    z-index: 100;
+}
+@media (min-width: 768px) {
+    .navbarContent {
+      display: none;
+    }
+}
+
+.sidebarContent {
+    color: rgb(122, 82, 82);
+    font-size: 0.5px;
+    margin-bottom: 10px;
+    border-bottom: 4px dotted black;
+    cursor: pointer;
+}
+.sidebarContent:hover {
+    color: rgb(182, 121, 121);
+}
